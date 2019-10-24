@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import GameOver from "./GameOver";
+import GameBoard from "./GameBoard";
+import FlagBoard from "./FlagBoard";
 import * as utils from "./utils";
 import "./App.css";
 
@@ -10,6 +13,7 @@ function App() {
   const [clicks, setClicks] = useState({});
   const [cardDeck, setCardDeck] = useState([]);
   const [countryData, setCountryData] = useState([]);
+  const [flagBoard, setFlagBoard] = useState([]);
 
   useEffect(() => {
     utils.resetClicks(setClicks);
@@ -21,8 +25,16 @@ function App() {
     utils.resetClicks(setClicks);
     utils.createDeck(setCardDeck, countryData, setCountryData, gameNum);
     setGameNum(0);
-    console.log(cardDeck);
   };
+
+  const solved =
+    cardDeck.length > 0 && cardDeck.filter(c => !c.solved).length === 0;
+
+  // const testy = () => {
+  //   console.log(cardDeck);
+  //   console.log(cardDeck.filter(c => !c.solved));
+  //   console.log(solved);
+  // };
 
   return (
     <div className="App">
@@ -32,6 +44,18 @@ function App() {
         gameNum={gameNum}
         setGameNum={setGameNum}
       />
+      {solved ? (
+        <GameOver clicks={clicks} />
+      ) : (
+        <GameBoard
+          cardDeck={cardDeck}
+          setCardDeck={setCardDeck}
+          setClicks={setClicks}
+          setFlagBoard={setFlagBoard}
+          countryData={countryData}
+        />
+      )}
+      <FlagBoard flagBoard={flagBoard} countryData={countryData} />
     </div>
   );
 }
