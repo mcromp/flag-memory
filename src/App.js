@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import GameOver from "./GameOver";
 import GameBoard from "./GameBoard";
-import FlagBoard from "./FlagBoard";
+import WikiBoard from "./WikiBoard";
 import * as utils from "./utils";
 import "./App.css";
 
@@ -11,7 +11,7 @@ function App() {
   const [clicks, setClicks] = useState({});
   const [cardDeck, setCardDeck] = useState([]);
   const [countryData, setCountryData] = useState([]);
-  const [flagBoard, setFlagBoard] = useState([]);
+  const [wikiBoardData, setWikiBoardData] = useState([]);
 
   const url = "https://restcountries.eu/rest/v2/all";
 
@@ -27,7 +27,7 @@ function App() {
     setGameNum(0);
   };
 
-  let solved =
+  let gameSolved =
     cardDeck.length > 0 && cardDeck.filter(c => !c.solved).length === 0;
 
   return (
@@ -38,19 +38,18 @@ function App() {
         gameNum={gameNum}
         setGameNum={setGameNum}
       />
-      {solved ? (
-        <GameOver clicks={clicks} />
-      ) : (
-        <GameBoard
-          cardDeck={cardDeck}
-          setCardDeck={setCardDeck}
-          setClicks={setClicks}
-          setFlagBoard={setFlagBoard}
-          countryData={countryData}
-        />
-      )}
+      {gameSolved && <GameOver clicks={clicks} />}
+      <GameBoard
+        cardDeck={cardDeck}
+        setCardDeck={setCardDeck}
+        setClicks={setClicks}
+        setWikiBoardData={setWikiBoardData}
+        countryData={countryData}
+        gameSolved={gameSolved}
+      />
+
       <div>
-        <FlagBoard flagBoard={flagBoard} countryData={countryData} />
+        <WikiBoard wikiBoardData={wikiBoardData} countryData={countryData} />
       </div>
     </div>
   );

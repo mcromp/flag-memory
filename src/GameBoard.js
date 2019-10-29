@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 
-function Gameboard({ cardDeck, setCardDeck, setClicks, setFlagBoard }) {
+function Gameboard({
+  cardDeck,
+  setCardDeck,
+  setClicks,
+  setFlagBoard,
+  gameSolved
+}) {
   const [activeCards, setActiveCards] = useState([]);
 
   useEffect(() => {
@@ -69,7 +75,7 @@ function Gameboard({ cardDeck, setCardDeck, setClicks, setFlagBoard }) {
       <Card c={c} key={i} flagClick={flagClick} activeCards={activeCards} />
     );
   });
-  return <div className="grid">{gameDeck}</div>;
+  return <div className={gameSolved ? "hidden" : "grid"}>{gameDeck}</div>;
 }
 
 export default Gameboard;
