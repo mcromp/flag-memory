@@ -1,15 +1,17 @@
-import nameFilter from "./nameFilter.js";
+const nameCorrections = [
+  { "Korea (Democratic People's Republic of)": "North Korea" },
+  { "Virgin Islands (British)": "British Virgin Islands" },
+  { "Macedonia (the former Yugoslav Republic of)": "North Macedonia" }
+];
 
 const fetchCountryAPI = (url, setCountryData) => {
-  let name = "";
   fetch(url)
     .then(res => res.json())
     .then(data => {
       setCountryData(
         data.map((c, index) => {
-          name = nameFilter(c.name);
           return {
-            name,
+            name: c.name,
             flag: c.flag,
             index,
             flipped: false,

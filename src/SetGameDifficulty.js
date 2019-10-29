@@ -16,7 +16,7 @@ function SetGameDifficulty({ gameNum, setGameNum, handleStart }) {
     },
     {
       name: "Difficult",
-      value: 420
+      value: 18
     }
   ];
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
-// import Checked from "./Checked";
 
 function Gameboard({ cardDeck, setCardDeck, setClicks, setFlagBoard }) {
   const [activeCards, setActiveCards] = useState([]);
