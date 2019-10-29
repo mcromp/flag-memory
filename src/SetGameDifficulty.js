@@ -1,6 +1,6 @@
 import React from "react";
 
-function SetGameDifficulty({ gameNum, setGameNum, handleStart }) {
+function SetGameDifficulty({ gameNum, setGameNum, handleSubmit }) {
   const difficultyValues = [
     {
       name: "Select Difficulty Level",
@@ -22,7 +22,7 @@ function SetGameDifficulty({ gameNum, setGameNum, handleStart }) {
 
   return (
     <div className="borderB">
-      <form onSubmit={handleStart}>
+      <form onSubmit={handleSubmit}>
         <select
           className="select"
           value={gameNum}

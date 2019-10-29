@@ -1,12 +1,12 @@
 import React from "react";
 import SetGameDifficulty from "./SetGameDifficulty";
 
-function Header({ handleStart, gameNum, setGameNum }) {
+function Header({ handleSubmit, gameNum, setGameNum }) {
   return (
     <div>
       <h1>Fun Game</h1>
       <SetGameDifficulty
-        handleStart={handleStart}
+        handleSubmit={handleSubmit}
         gameNum={gameNum}
         setGameNum={setGameNum}
       />

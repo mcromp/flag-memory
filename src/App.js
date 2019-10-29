@@ -20,7 +20,7 @@ function App() {
     utils.fetchCountryAPI(url, setCountryData);
   }, []);
 
-  const handleStart = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     utils.resetClicks(setClicks);
     utils.createDeck(setCardDeck, countryData, setCountryData, gameNum);
@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Header
         clicks={clicks}
-        handleStart={handleStart}
+        handleSubmit={handleSubmit}
         gameNum={gameNum}
         setGameNum={setGameNum}
       />
