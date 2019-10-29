@@ -16,7 +16,6 @@ const fetchCountryAPI = (url, setCountryData) => {
             solved: false,
             wiki: null
           };
-          ``;
         })
       );
     })

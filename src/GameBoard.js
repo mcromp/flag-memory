@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
-import Checked from "./Checked";
+// import Checked from "./Checked";
 
 function Gameboard({ cardDeck, setCardDeck, setClicks, setFlagBoard }) {
   const [activeCards, setActiveCards] = useState([]);
@@ -66,12 +66,9 @@ function Gameboard({ cardDeck, setCardDeck, setClicks, setFlagBoard }) {
   };
 
   const gameDeck = cardDeck.map((c, i) => {
-    if (!c.solved) {
-      return (
-        <Card c={c} key={i} flagClick={flagClick} activeCards={activeCards} />
-      );
-    }
-    return <Checked key={i} />;
+    return (
+      <Card c={c} key={i} flagClick={flagClick} activeCards={activeCards} />
+    );
   });
   return <div className="grid">{gameDeck}</div>;
 }
