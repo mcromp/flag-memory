@@ -1,11 +1,13 @@
 import React from "react";
 
 function FlagBoard({ flagBoard, countryData }) {
-  let board = flagBoard.map((c, i) => {
+  let board = flagBoard.map((country, i) => {
+    let { name, flag, wiki } = countryData[country];
     return (
-      <div key={i}>
-        <h1>{countryData[c].name}</h1>
-        <p>{countryData[c].wiki}</p>
+      <div key={i} className="borderB">
+        <h1>{name}</h1>
+        <img className="flag" alt={`flag of ${name}`} src={flag} />
+        <p>{wiki}</p>
       </div>
     );
   });

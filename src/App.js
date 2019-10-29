@@ -6,14 +6,14 @@ import FlagBoard from "./FlagBoard";
 import * as utils from "./utils";
 import "./App.css";
 
-const url = "https://restcountries.eu/rest/v2/all";
-
 function App() {
   const [gameNum, setGameNum] = useState("");
   const [clicks, setClicks] = useState({});
   const [cardDeck, setCardDeck] = useState([]);
   const [countryData, setCountryData] = useState([]);
   const [flagBoard, setFlagBoard] = useState([]);
+
+  const url = "https://restcountries.eu/rest/v2/all";
 
   useEffect(() => {
     utils.resetClicks(setClicks);
@@ -27,14 +27,8 @@ function App() {
     setGameNum(0);
   };
 
-  const solved =
+  let solved =
     cardDeck.length > 0 && cardDeck.filter(c => !c.solved).length === 0;
-
-  // const testy = () => {
-  //   console.log(cardDeck);
-  //   console.log(cardDeck.filter(c => !c.solved));
-  //   console.log(solved);
-  // };
 
   return (
     <div className="App">
@@ -55,7 +49,9 @@ function App() {
           countryData={countryData}
         />
       )}
-      <FlagBoard flagBoard={flagBoard} countryData={countryData} />
+      <div>
+        <FlagBoard flagBoard={flagBoard} countryData={countryData} />
+      </div>
     </div>
   );
 }
