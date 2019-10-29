@@ -21,7 +21,7 @@ function SetGameDifficulty({ gameNum, setGameNum, handleSubmit }) {
   ];
 
   return (
-    <div className="borderB">
+    <div>
       <form onSubmit={handleSubmit}>
         <select
           className="select"

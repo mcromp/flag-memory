@@ -5,7 +5,7 @@ function Gameboard({
   cardDeck,
   setCardDeck,
   setClicks,
-  setFlagBoard,
+  setWikiBoardData,
   gameSolved
 }) {
   const [activeCards, setActiveCards] = useState([]);
@@ -16,7 +16,7 @@ function Gameboard({
         prevState.correct++;
         return prevState;
       });
-      setFlagBoard(prevState => {
+      setWikiBoardData(prevState => {
         prevState = [c.index, ...prevState];
         return prevState;
       });
@@ -53,7 +53,7 @@ function Gameboard({
         ? pairMatch(activeCards[0])
         : pairNoMatch();
     }
-  }, [activeCards, setFlagBoard, setClicks, setCardDeck]);
+  }, [activeCards, setWikiBoardData, setClicks, setCardDeck]);
 
   const flagClick = c => {
     setClicks(prevState => {
