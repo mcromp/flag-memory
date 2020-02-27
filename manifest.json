@@ -1,0 +1,8 @@
+{
+  "short_name": "Fun Game",
+  "name": "Fun Game give me a job",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

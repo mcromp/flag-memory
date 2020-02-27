@@ -1,0 +1,2 @@
+.App{text-align:center}.borderB{width:75%;border:1px solid;margin-left:auto;margin-right:auto}.grid{padding:30px 20px;height:auto;width:auto;display:flex;display:grid;grid-gap:10px;gap:10px;grid-template-columns:repeat(6,minmax(90px,120px))}.card,.grid{justify-content:center}.card{height:90px;width:100px;border-radius:20%;border:1px solid grey;display:flex;align-items:center;object-fit:contain}.hidden{display:none}.flag{width:100px}
+/*# sourceMappingURL=main.0b235eed.chunk.css.map */
