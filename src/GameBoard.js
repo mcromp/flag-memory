@@ -70,9 +70,14 @@ function Gameboard({
     });
   };
 
-  const gameDeck = cardDeck.map((c, i) => {
+  const gameDeck = cardDeck.map((country, i) => {
     return (
-      <Card c={c} key={i} flagClick={flagClick} activeCards={activeCards} />
+      <Card
+        country={country}
+        key={i}
+        flagClick={flagClick}
+        activeCards={activeCards}
+      />
     );
   });
   return <div className={gameSolved ? "hidden" : "grid"}>{gameDeck}</div>;

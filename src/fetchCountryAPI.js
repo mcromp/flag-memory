@@ -10,14 +10,14 @@ const fetchCountryAPI = (url, setCountryData) => {
     .then(res => res.json())
     .then(data => {
       setCountryData(
-        data.map((c, index) => {
-          let name = c.name;
-          if (nameCorrections[c.name]) {
-            name = nameCorrections[c.name];
+        data.map((country, index) => {
+          let name = country.name;
+          if (nameCorrections[country.name]) {
+            name = nameCorrections[country.name];
           }
           return {
             name: name,
-            flag: c.flag,
+            flag: country.flag,
             index,
             flipped: false,
             solved: false,

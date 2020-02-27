@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 
-function Card({ c, flagClick, activeCards }) {
-  let { flipped, solved, flag } = c;
+function Card({ country, flagClick, activeCards }) {
+  let { flipped, solved, flag } = country;
   let img = flipped ? flag : null;
 
   return (
@@ -10,7 +10,7 @@ function Card({ c, flagClick, activeCards }) {
       className="card"
       onClick={
         activeCards.length < 2 && !(flipped || solved)
-          ? () => flagClick(c)
+          ? () => flagClick(country)
           : null
       }
     >

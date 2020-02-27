@@ -1,4 +1,3 @@
-import shuffle from "./shuffle";
 import fetchWiki from "./fetchWiki";
 
 export default function createDeck(
@@ -15,4 +14,12 @@ export default function createDeck(
   shuffle(countries);
   setCardDeck(countries);
   setCardDeck(prevState => prevState.map((c, i) => ({ ...c, boardIndex: i })));
+}
+
+//Fisher–Yates shuffle function
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }

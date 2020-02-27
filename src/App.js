@@ -3,7 +3,9 @@ import Header from "./Header";
 import GameOver from "./GameOver";
 import GameBoard from "./GameBoard";
 import WikiBoard from "./WikiBoard";
-import * as utils from "./utils";
+import resetClicks from "./resetClicks";
+import createDeck from "./createDeck";
+import fetchCountryAPI from "./fetchCountryAPI";
 import "./App.css";
 
 function App() {
@@ -16,14 +18,14 @@ function App() {
   const url = "https://restcountries.eu/rest/v2/all";
 
   useEffect(() => {
-    utils.resetClicks(setClicks);
-    utils.fetchCountryAPI(url, setCountryData);
+    resetClicks(setClicks);
+    fetchCountryAPI(url, setCountryData);
   }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
-    utils.resetClicks(setClicks);
-    utils.createDeck(setCardDeck, countryData, setCountryData, gameNum);
+    resetClicks(setClicks);
+    createDeck(setCardDeck, countryData, setCountryData, gameNum);
     setGameNum(0);
   };
 
