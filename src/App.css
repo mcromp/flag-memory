@@ -10,13 +10,14 @@
 }
 
 .grid {
-  padding: 10px 20px 10px 50px;
+  padding: 30px 20px;
   height: auto;
   width: auto;
   display: flex;
   justify-content: center;
   display: grid;
-  grid-template-columns: 120px 120px 120px 120px 120px 120px;
+  gap: 10px;
+  grid-template-columns: repeat(6, minmax(90px, 120px));
 }
 
 .card {

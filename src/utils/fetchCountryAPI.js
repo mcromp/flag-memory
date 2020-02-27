@@ -1,7 +1,8 @@
 const nameCorrections = {
   "Korea (Democratic People's Republic of)": "North Korea",
   "Virgin Islands (British)": "British Virgin Islands",
-  "Macedonia (the former Yugoslav Republic of)": "North Macedonia"
+  "Macedonia (the former Yugoslav Republic of)": "North Macedonia",
+  Georgia: "Georgia (country)"
 };
 
 const fetchCountryAPI = (url, setCountryData) => {
