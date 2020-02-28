@@ -9,7 +9,12 @@ export default function createDeck(
   let countries = [...countryData];
   shuffle(countries);
   countries = countries.slice(0, gameNum);
-  countries.map(c => fetchWiki(c, setCountryData));
+  countries.map(c => {
+    if (!countryData[c.index].wiki) {
+      return fetchWiki(c, setCountryData);
+    }
+    return c;
+  });
   countries = [...countries, ...countries];
   shuffle(countries);
   setCardDeck(countries);
