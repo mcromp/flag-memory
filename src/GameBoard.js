@@ -70,17 +70,16 @@ function Gameboard({
     });
   };
 
-  const gameDeck = cardDeck.map((country, i) => {
-    return (
-      <Card
-        country={country}
-        key={i}
-        flagClick={flagClick}
-        activeCards={activeCards}
-      />
-    );
-  });
-  return <div className={gameSolved ? "hidden" : "grid"}>{gameDeck}</div>;
+  const gameDeck = cardDeck.map((country, i) => (
+    <Card
+      country={country}
+      key={i}
+      flagClick={flagClick}
+      activeCards={activeCards}
+    />
+  ));
+
+  return <div className={gameSolved ? "hidden" : "cardGrid"}>{gameDeck}</div>;
 }
 
 export default Gameboard;

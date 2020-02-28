@@ -33,7 +33,7 @@ function App() {
     cardDeck.length > 0 && cardDeck.filter(c => !c.solved).length === 0;
 
   return (
-    <div className="App">
+    <div className="app">
       <Header
         clicks={clicks}
         handleSubmit={handleSubmit}
@@ -50,9 +50,7 @@ function App() {
         gameSolved={gameSolved}
       />
 
-      <div>
-        <WikiBoard wikiBoardData={wikiBoardData} countryData={countryData} />
-      </div>
+      <WikiBoard wikiBoardData={wikiBoardData} countryData={countryData} />
     </div>
   );
 }

@@ -21,20 +21,18 @@ function SetGameDifficulty({ gameNum, setGameNum, handleSubmit }) {
   ];
 
   return (
-    <div>
+    <div className="selectDiv">
       <form onSubmit={handleSubmit}>
-        <select
-          className="select"
-          value={gameNum}
-          onChange={e => setGameNum(e.target.value)}
-        >
+        <select value={gameNum} onChange={e => setGameNum(e.target.value)}>
           {difficultyValues.map((data, i) => (
             <option key={i} value={data.value}>
               {data.name}
             </option>
           ))}
         </select>
-        <button disabled={!gameNum}>Start!</button>
+        <button className="btn" disabled={!gameNum}>
+          Start!
+        </button>
       </form>
     </div>
   );

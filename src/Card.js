@@ -14,11 +14,7 @@ function Card({ country, flagClick, activeCards }) {
           : null
       }
     >
-      {solved ? (
-        <span className="check">✔</span>
-      ) : (
-        <img className="flag" alt="" src={img} />
-      )}
+      {solved ? <span className="check">✔</span> : <img alt="" src={img} />}
     </div>
   );
 }

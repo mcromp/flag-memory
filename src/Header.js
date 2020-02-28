@@ -3,7 +3,7 @@ import SetGameDifficulty from "./SetGameDifficulty";
 
 function Header({ handleSubmit, gameNum, setGameNum }) {
   return (
-    <div>
+    <div className="header">
       <h1>Flag Memory</h1>
       <SetGameDifficulty
         handleSubmit={handleSubmit}
