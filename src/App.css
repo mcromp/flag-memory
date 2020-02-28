@@ -84,7 +84,7 @@ p {
   color: var(--shadow);
 }
 
-.solved {
+.gameover {
   margin: 30px 20px;
   padding: 10px;
   display: block;

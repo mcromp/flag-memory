@@ -2,7 +2,7 @@ import React from "react";
 
 function GameOver({ clicks }) {
   return (
-    <div className="solved">
+    <div className="gameover">
       <h1>Solved!</h1>
       <h2>with {clicks.clicks} flips</h2>
       <h3>
