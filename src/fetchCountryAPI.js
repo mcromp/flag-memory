@@ -1,3 +1,4 @@
+import fetchAPI from "./fetchJSON";
 const nameCorrections = {
   "Korea (Democratic People's Republic of)": "North Korea",
   "Virgin Islands (British)": "British Virgin Islands",
@@ -5,28 +6,24 @@ const nameCorrections = {
   Georgia: "Georgia (country)"
 };
 
-const fetchCountryAPI = (url, setCountryData) => {
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      setCountryData(
-        data.map((country, index) => {
-          let name = country.name;
-          if (nameCorrections[country.name]) {
-            name = nameCorrections[country.name];
-          }
-          return {
-            name: name,
-            flag: country.flag,
-            index,
-            flipped: false,
-            solved: false,
-            wiki: null
-          };
-        })
-      );
+const setCountryDataFromApi = (data, setCountryData) => {
+  setCountryData(
+    data.map((country, index) => {
+      let countryName = country.name;
+      return {
+        name: nameCorrections[countryName] || countryName,
+        flag: country.flag,
+        index,
+        flipped: false,
+        solved: false,
+        wiki: null
+      };
     })
-    .catch(err => console.error(err));
+  );
+};
+
+const fetchCountryAPI = (url, setCountryData) => {
+  fetchAPI(url).then(data => setCountryDataFromApi(data, setCountryData));
 };
 
 export default fetchCountryAPI;
