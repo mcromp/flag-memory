@@ -1,6 +1,6 @@
 import React from "react";
 
-function SetGameDifficulty({ gameNum, setGameNum, handleSubmit }) {
+function SetGameDifficulty({ deckSizeNum, setDeckSizeNum, handleSubmit }) {
   const difficultyValues = [
     {
       name: "Select Difficulty Level",
@@ -23,14 +23,17 @@ function SetGameDifficulty({ gameNum, setGameNum, handleSubmit }) {
   return (
     <div className="selectDiv">
       <form onSubmit={handleSubmit}>
-        <select value={gameNum} onChange={e => setGameNum(e.target.value)}>
+        <select
+          value={deckSizeNum}
+          onChange={e => setDeckSizeNum(e.target.value)}
+        >
           {difficultyValues.map((data, i) => (
             <option key={i} value={data.value}>
               {data.name}
             </option>
           ))}
         </select>
-        <button className="btn" disabled={!gameNum}>
+        <button className="btn" disabled={!deckSizeNum}>
           Start!
         </button>
       </form>

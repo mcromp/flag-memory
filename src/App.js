@@ -8,7 +8,7 @@ import fetchCountryAPI from "./fetchCountryAPI";
 import "./App.css";
 
 function App() {
-  const [gameNum, setGameNum] = useState("");
+  const [deckSizeNum, setDeckSizeNum] = useState("");
   const [clicks, setClicks] = useState({});
   const [cardDeck, setCardDeck] = useState([]);
   const [countryData, setCountryData] = useState([]);
@@ -31,8 +31,8 @@ function App() {
   const handleSubmit = e => {
     e.preventDefault();
     resetClicks(setClicks);
-    createDeck(setCardDeck, countryData, setCountryData, gameNum);
-    setGameNum(0);
+    createDeck(setCardDeck, countryData, setCountryData, deckSizeNum);
+    setDeckSizeNum(0);
   };
 
   let gameSolved =
@@ -43,8 +43,8 @@ function App() {
       <Header
         clicks={clicks}
         handleSubmit={handleSubmit}
-        gameNum={gameNum}
-        setGameNum={setGameNum}
+        deckSizeNum={deckSizeNum}
+        setDeckSizeNum={setDeckSizeNum}
       />
       {gameSolved && <GameOver clicks={clicks} />}
       <GameBoard
