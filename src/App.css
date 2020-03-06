@@ -29,17 +29,20 @@ p {
   background-color: var(--bg-highlight);
 }
 
-.header > h1 {
+.header > span {
+  font: 35px "Abril Fatface", serif;
   letter-spacing: 5px;
   word-spacing: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: var(--shadow);
 }
 
 .header > .selectDiv {
   display: flex;
   align-items: center;
+  padding: 0 0 0 20px;
 }
 .selectDiv select {
   font: 20px "Raleway", sans-serif;

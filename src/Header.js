@@ -4,7 +4,7 @@ import SetGameDifficulty from "./SetGameDifficulty";
 function Header({ handleSubmit, deckSizeNum, setDeckSizeNum }) {
   return (
     <div className="header">
-      <h1>Flag Memory</h1>
+      <span>Flag Memory</span>
       <SetGameDifficulty
         handleSubmit={handleSubmit}
         deckSizeNum={deckSizeNum}
