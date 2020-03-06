@@ -70,7 +70,9 @@ function Gameboard({
     <Card {...{ country, flagClick, activeCards }} key={country.name + i} />
   ));
 
-  return <div className={gameSolved ? "hidden" : "cardGrid"}>{gameDeck}</div>;
+  return (
+    <div className={gameSolved ? "noDisplay" : "cardGrid"}>{gameDeck}</div>
+  );
 }
 
 export default Gameboard;
