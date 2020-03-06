@@ -1,15 +1,18 @@
-const url_wiki = "https://en.wikipedia.org/api/rest_v1/page/summary/";
+import fetchJSON from "./fetchJSON";
+
+const URL_WIKI = "https://en.wikipedia.org/api/rest_v1/page/summary/";
+
+const setCountryDataWiki = (c, setCountryData, json) => {
+  setCountryData(prevState => {
+    prevState[c.index].wiki = json.extract;
+    return prevState;
+  });
+};
 
 const fetchWiki = (c, setCountryData) => {
-  fetch(url_wiki + c.name)
-    .then(response => response.json())
-    .then(json => {
-      setCountryData(prevState => {
-        prevState[c.index].wiki = json.extract;
-        return prevState;
-      });
-    })
-    .catch(err => console.error(err));
+  fetchJSON(URL_WIKI + c.name).then(json => {
+    setCountryDataWiki(c, setCountryData, json);
+  });
 };
 
 export default fetchWiki;

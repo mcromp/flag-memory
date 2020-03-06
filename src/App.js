@@ -14,11 +14,11 @@ function App() {
   const [countryData, setCountryData] = useState([]);
   const [wikiBoardData, setWikiBoardData] = useState([]);
 
-  const url = "https://restcountries.eu/rest/v2/all";
+  const URL = "https://restcountries.eu/rest/v2/all";
 
   useEffect(() => {
     resetClicks(setClicks);
-    fetchCountryAPI(url, setCountryData);
+    fetchCountryAPI(URL, setCountryData);
   }, []);
 
   const resetClicks = setClicks => {
