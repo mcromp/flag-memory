@@ -7,18 +7,18 @@ import createDeck from "./createDeck";
 import fetchCountryAPI from "./fetchCountryAPI";
 import "./App.css";
 
-function App() {
+const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
+
+const App = () => {
   const [deckSizeNum, setDeckSizeNum] = useState("");
   const [flipAttempts, setFlipAttempts] = useState({});
   const [cardDeck, setCardDeck] = useState([]);
   const [countryData, setCountryData] = useState([]);
   const [wikiBoardData, setWikiBoardData] = useState([]);
 
-  const URL = "https://restcountries.eu/rest/v2/all";
-
   useEffect(() => {
     resetFlipAttempts(setFlipAttempts);
-    fetchCountryAPI(URL, setCountryData);
+    fetchCountryAPI(COUNTRY_URL, setCountryData);
   }, []);
 
   const resetFlipAttempts = setFlipAttempts => {
@@ -41,24 +41,23 @@ function App() {
   return (
     <div className="app">
       <Header
-        flipAttempts={flipAttempts}
-        handleSubmit={handleSubmit}
-        deckSizeNum={deckSizeNum}
-        setDeckSizeNum={setDeckSizeNum}
+        {...{ flipAttempts, handleSubmit, deckSizeNum, setDeckSizeNum }}
       />
       {gameSolved && <GameOver flipAttempts={flipAttempts} />}
       <GameBoard
-        cardDeck={cardDeck}
-        setCardDeck={setCardDeck}
-        setFlipAttempts={setFlipAttempts}
-        setWikiBoardData={setWikiBoardData}
-        countryData={countryData}
-        gameSolved={gameSolved}
+        {...{
+          cardDeck,
+          setCardDeck,
+          setFlipAttempts,
+          setWikiBoardData,
+          countryData,
+          gameSolved
+        }}
       />
 
-      <WikiBoard wikiBoardData={wikiBoardData} countryData={countryData} />
+      <WikiBoard {...{ wikiBoardData, countryData }} />
     </div>
   );
-}
+};
 
 export default App;

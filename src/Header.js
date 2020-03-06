@@ -5,11 +5,7 @@ function Header({ handleSubmit, deckSizeNum, setDeckSizeNum }) {
   return (
     <div className="header">
       <span>Flag Memory</span>
-      <SetGameDifficulty
-        handleSubmit={handleSubmit}
-        deckSizeNum={deckSizeNum}
-        setDeckSizeNum={setDeckSizeNum}
-      />
+      <SetGameDifficulty {...{ handleSubmit, deckSizeNum, setDeckSizeNum }} />
     </div>
   );
 }
