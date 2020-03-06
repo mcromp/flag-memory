@@ -28,7 +28,7 @@ const SetGameDifficulty = ({ deckSizeNum, setDeckSizeNum, handleSubmit }) => {
           onChange={e => setDeckSizeNum(e.target.value)}
         >
           {DIFFICULTY_VALS.map((data, i) => (
-            <option key={i} value={data.value}>
+            <option key={data.name} value={data.value}>
               {data.name}
             </option>
           ))}

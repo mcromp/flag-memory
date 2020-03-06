@@ -69,7 +69,7 @@ function Gameboard({
   const gameDeck = cardDeck.map((country, i) => (
     <Card
       country={country}
-      key={i}
+      key={country.name + i}
       flagClick={flagClick}
       activeCards={activeCards}
     />
