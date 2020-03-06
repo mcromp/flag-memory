@@ -3,7 +3,6 @@ import Header from "./Header";
 import GameOver from "./GameOver";
 import GameBoard from "./GameBoard";
 import WikiBoard from "./WikiBoard";
-import resetClicks from "./resetClicks";
 import createDeck from "./createDeck";
 import fetchCountryAPI from "./fetchCountryAPI";
 import "./App.css";
@@ -22,6 +21,13 @@ function App() {
     fetchCountryAPI(url, setCountryData);
   }, []);
 
+  const resetClicks = setClicks => {
+    setClicks({
+      clicks: 0,
+      correct: 0,
+      incorrect: 0
+    });
+  };
   const handleSubmit = e => {
     e.preventDefault();
     resetClicks(setClicks);
