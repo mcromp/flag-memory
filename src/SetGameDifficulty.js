@@ -18,7 +18,8 @@ const DIFFICULTY_VALS = [
     value: 18
   }
 ];
-function SetGameDifficulty({ deckSizeNum, setDeckSizeNum, handleSubmit }) {
+
+const SetGameDifficulty = ({ deckSizeNum, setDeckSizeNum, handleSubmit }) => {
   return (
     <div className="selectDiv">
       <form onSubmit={handleSubmit}>
@@ -38,6 +39,6 @@ function SetGameDifficulty({ deckSizeNum, setDeckSizeNum, handleSubmit }) {
       </form>
     </div>
   );
-}
+};
 
 export default SetGameDifficulty;
