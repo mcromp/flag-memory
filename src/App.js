@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   const [deckSizeNum, setDeckSizeNum] = useState("");
-  const [clicks, setClicks] = useState({});
+  const [flipAttempts, setFlipAttempts] = useState({});
   const [cardDeck, setCardDeck] = useState([]);
   const [countryData, setCountryData] = useState([]);
   const [wikiBoardData, setWikiBoardData] = useState([]);
@@ -17,20 +17,20 @@ function App() {
   const URL = "https://restcountries.eu/rest/v2/all";
 
   useEffect(() => {
-    resetClicks(setClicks);
+    resetFlipAttempts(setFlipAttempts);
     fetchCountryAPI(URL, setCountryData);
   }, []);
 
-  const resetClicks = setClicks => {
-    setClicks({
-      clicks: 0,
+  const resetFlipAttempts = setFlipAttempts => {
+    setFlipAttempts({
       correct: 0,
       incorrect: 0
     });
   };
+
   const handleSubmit = e => {
     e.preventDefault();
-    resetClicks(setClicks);
+    resetFlipAttempts(setFlipAttempts);
     createDeck(setCardDeck, countryData, setCountryData, deckSizeNum);
     setDeckSizeNum(0);
   };
@@ -41,16 +41,16 @@ function App() {
   return (
     <div className="app">
       <Header
-        clicks={clicks}
+        flipAttempts={flipAttempts}
         handleSubmit={handleSubmit}
         deckSizeNum={deckSizeNum}
         setDeckSizeNum={setDeckSizeNum}
       />
-      {gameSolved && <GameOver clicks={clicks} />}
+      {gameSolved && <GameOver flipAttempts={flipAttempts} />}
       <GameBoard
         cardDeck={cardDeck}
         setCardDeck={setCardDeck}
-        setClicks={setClicks}
+        setFlipAttempts={setFlipAttempts}
         setWikiBoardData={setWikiBoardData}
         countryData={countryData}
         gameSolved={gameSolved}

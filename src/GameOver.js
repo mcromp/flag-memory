@@ -1,12 +1,13 @@
 import React from "react";
 
-function GameOver({ clicks }) {
+function GameOver({ flipAttempts }) {
   return (
     <div className="gameover">
       <h1>Solved!</h1>
-      <h2>with {clicks.clicks} flips</h2>
+      <h2>in {flipAttempts.correct + flipAttempts.incorrect} attemps</h2>
       <h3>
-        {clicks.correct * 2} correct clicks and {clicks.incorrect * 2} incorrect
+        {flipAttempts.correct} correct attemps and {flipAttempts.incorrect}{" "}
+        incorrect
       </h3>
       <p>select a new difficulty level to start again</p>
     </div>

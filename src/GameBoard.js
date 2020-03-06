@@ -4,7 +4,7 @@ import Card from "./Card";
 function Gameboard({
   cardDeck,
   setCardDeck,
-  setClicks,
+  setFlipAttempts,
   setWikiBoardData,
   gameSolved
 }) {
@@ -12,7 +12,7 @@ function Gameboard({
 
   useEffect(() => {
     const pairMatch = c => {
-      setClicks(prevState => {
+      setFlipAttempts(prevState => {
         prevState.correct++;
         return prevState;
       });
@@ -34,7 +34,7 @@ function Gameboard({
       }, 400);
     };
     const pairNoMatch = () => {
-      setClicks(prevState => {
+      setFlipAttempts(prevState => {
         prevState.incorrect++;
         return prevState;
       });
@@ -53,13 +53,9 @@ function Gameboard({
         ? pairMatch(activeCards[0])
         : pairNoMatch();
     }
-  }, [activeCards, setWikiBoardData, setClicks, setCardDeck]);
+  }, [activeCards, setWikiBoardData, setFlipAttempts, setCardDeck]);
 
   const flagClick = c => {
-    setClicks(prevState => {
-      prevState.clicks++;
-      return prevState;
-    });
     setCardDeck(prevState => {
       prevState[c.boardIndex].flipped = !prevState[c.boardIndex].flipped;
       return prevState;
