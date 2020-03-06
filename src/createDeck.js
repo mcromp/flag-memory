@@ -12,10 +12,8 @@ export default function createDeck(
   countries.map(c => {
     return !countryData[c.index].wiki ? fetchWiki(c, setCountryData) : c;
   });
-  countries = [...countries, ...countries];
-  shuffle(countries);
-  setCardDeck(countries);
-  setCardDeck(prevState => prevState.map((c, i) => ({ ...c, boardIndex: i })));
+  shuffle((countries = [...countries, ...countries]));
+  setCardDeck(countries.map((c, i) => ({ ...c, boardIndex: i })));
 }
 
 //Fisher–Yates shuffle function
