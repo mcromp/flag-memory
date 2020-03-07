@@ -1,8 +1,6 @@
 {
-  "short_name": "Fun Game",
-  "name": "Fun Game give me a job",
+  "short_name": "Flag Memory",
+  "name": "Flag memory game",
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "standalone"
 }
