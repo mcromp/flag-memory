@@ -40,10 +40,17 @@ function Gameboard({
     );
   };
 
+  const addToWikiBoard = (setWikiBoardData, c) => {
+    setWikiBoardData(prevState => {
+      let tempArr = prevState.filter(country => c.index !== country);
+      return [c.index, ...tempArr];
+    });
+  };
+
   useEffect(() => {
     const pairMatch = c => {
       addFlipValuetoFlipAttempts(setFlipAttempts, "correct");
-      setWikiBoardData(prevState => [c.index, ...prevState]);
+      addToWikiBoard(setWikiBoardData, c);
       setTimeout(() => {
         setActiveCards([]);
         setCorrectAttempt(setCardDeck, c.name);

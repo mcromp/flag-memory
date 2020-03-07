@@ -3,9 +3,8 @@ import React from "react";
 const WikiBoard = ({ wikiBoardData, countryData }) => {
   let board = wikiBoardData.map(country => {
     let { name, flag, wiki } = countryData[country];
-    return <WikiCountryCard name={name} flag={flag} wiki={wiki} key={name} />;
+    return <WikiCountryCard key={country} {...{ name, flag, wiki }} />;
   });
-
   return <div className="wikiBoard">{board}</div>;
 };
 
