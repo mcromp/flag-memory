@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 
+const TIMEOUT_VALUE = 400;
+
 function Gameboard({
   cardDeck,
   setCardDeck,
@@ -10,44 +12,52 @@ function Gameboard({
 }) {
   const [activeCards, setActiveCards] = useState([]);
 
+  const addFlipValuetoFlipAttempts = (setFlipAttempts, value) => {
+    setFlipAttempts(prevState => {
+      prevState[value]++;
+      return prevState;
+    });
+  };
+
+  const setCorrectAttempt = (setCardDeck, name) => {
+    setCardDeck(prevState =>
+      prevState.map(state => {
+        if (state.name === name) {
+          state.flipped = false;
+          state.solved = true;
+        }
+        return state;
+      })
+    );
+  };
+
+  const setIncorrectAttempt = setCardDeck => {
+    setCardDeck(prevState =>
+      prevState.map(state => {
+        state.flipped = false;
+        return state;
+      })
+    );
+  };
+
   useEffect(() => {
     const pairMatch = c => {
-      setFlipAttempts(prevState => {
-        prevState.correct++;
-        return prevState;
-      });
-      setWikiBoardData(prevState => {
-        prevState = [c.index, ...prevState];
-        return prevState;
-      });
+      addFlipValuetoFlipAttempts(setFlipAttempts, "correct");
+      setWikiBoardData(prevState => [c.index, ...prevState]);
       setTimeout(() => {
-        setCardDeck(prevState =>
-          prevState.map(state => {
-            if (state.name === c.name) {
-              state.flipped = false;
-              state.solved = true;
-            }
-            return state;
-          })
-        );
         setActiveCards([]);
-      }, 400);
+        setCorrectAttempt(setCardDeck, c.name);
+      }, TIMEOUT_VALUE);
     };
+
     const pairNoMatch = () => {
-      setFlipAttempts(prevState => {
-        prevState.incorrect++;
-        return prevState;
-      });
+      addFlipValuetoFlipAttempts(setFlipAttempts, "incorrect");
       setTimeout(() => {
         setActiveCards([]);
-        setCardDeck(prevState =>
-          prevState.map(state => {
-            state.flipped = false;
-            return state;
-          })
-        );
-      }, 400);
+        setIncorrectAttempt(setCardDeck);
+      }, TIMEOUT_VALUE);
     };
+
     if (activeCards.length === 2) {
       activeCards[0].name === activeCards[1].name
         ? pairMatch(activeCards[0])
@@ -60,10 +70,7 @@ function Gameboard({
       prevState[c.boardIndex].flipped = !prevState[c.boardIndex].flipped;
       return prevState;
     });
-    setActiveCards(prevState => {
-      prevState = [...prevState, c];
-      return prevState;
-    });
+    setActiveCards(prevState => [...prevState, c]);
   };
 
   const gameDeck = cardDeck.map((country, i) => (
