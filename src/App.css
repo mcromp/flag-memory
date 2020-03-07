@@ -79,7 +79,8 @@ p {
 }
 
 .card > img {
-  width: 110px;
+  max-width: 110px;
+  max-height: 110px;
 }
 
 .check {
