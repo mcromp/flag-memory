@@ -40,20 +40,20 @@ function Gameboard({
     );
   };
 
-  const addToWikiBoard = (setWikiBoardData, c) => {
+  const addToWikiBoard = (setWikiBoardData, country) => {
     setWikiBoardData(prevState => {
-      let tempArr = prevState.filter(country => c.index !== country);
-      return [c.index, ...tempArr];
+      let filteredArr = prevState.filter(c => country.index !== c);
+      return [country.index, ...filteredArr];
     });
   };
 
   useEffect(() => {
-    const pairMatch = c => {
+    const pairMatch = country => {
       addFlipValuetoFlipAttempts(setFlipAttempts, "correct");
-      addToWikiBoard(setWikiBoardData, c);
+      addToWikiBoard(setWikiBoardData, country);
       setTimeout(() => {
         setActiveCards([]);
-        setCorrectAttempt(setCardDeck, c.name);
+        setCorrectAttempt(setCardDeck, country.name);
       }, TIMEOUT_VALUE);
     };
 
@@ -72,12 +72,13 @@ function Gameboard({
     }
   }, [activeCards, setWikiBoardData, setFlipAttempts, setCardDeck]);
 
-  const flagClick = c => {
+  const flagClick = country => {
     setCardDeck(prevState => {
-      prevState[c.boardIndex].flipped = !prevState[c.boardIndex].flipped;
+      //prettier-ignore
+      prevState[country.boardIndex].flipped = !prevState[country.boardIndex].flipped;
       return prevState;
     });
-    setActiveCards(prevState => [...prevState, c]);
+    setActiveCards(prevState => [...prevState, country]);
   };
 
   const gameDeck = cardDeck.map((country, i) => (
