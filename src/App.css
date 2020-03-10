@@ -114,7 +114,6 @@ p {
 .wiki {
   margin: 20px;
   padding: 10px;
-  /* border: solid 1px var(--shadow); */
   background-color: var(--bg-highlight);
   box-shadow: 7px 7px 10px 1px;
   color: var(--shadow);
