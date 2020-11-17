@@ -14,4 +14,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Demo
 
-![Flag Memory Demo](src/public/demo.gif)
+![Flag Memory Demo](/public/demo.gif)
