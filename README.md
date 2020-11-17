@@ -11,7 +11,3 @@ After the user correctly selects pairs of matching flags, a wikipedia summary of
 - CSS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Motivation
-
-This app
