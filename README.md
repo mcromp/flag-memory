@@ -11,3 +11,7 @@ After the user correctly selects pairs of matching flags, a wikipedia summary of
 - CSS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Demo
+
+![Flag Memory Demo](src/public/demo.gif)
