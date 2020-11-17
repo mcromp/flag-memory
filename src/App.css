@@ -1,125 +1,134 @@
-@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@900&display=swap");
 :root {
-  --bg-main: #99b898;
-  --bg-highlight: #ff847c;
-  --shadow: #2a363b;
-  --highlight: #feceab;
+ --bg-main: #cccdcede;
+ --bg-highlight: #e4c7b4de;
+ --shadow: #2a363b;
+ --highlight: var(--bg-highlight);
+ --solved: #ffffff11;
 }
 .app {
-  display: grid;
-  grid-template-rows: 100px auto auto;
-  justify-items: center;
-  background-color: var(--bg-main);
-  height: 100%;
+ display: grid;
+ grid-template-rows: 100px auto auto;
+ justify-items: center;
+ background-color: var(--bg-main);
+ height: 100%;
 }
 
 h1 {
-  font-family: "Abril Fatface", serif;
+ font-family: "Roboto", sans-serif;
 }
 
 p {
-  font-family: "Raleway", sans-serif;
+ font-family: "Raleway", sans-serif;
 }
 /* Header */
 .header {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 300px auto;
-  box-shadow: 0 0 15px 1px;
-  background-color: var(--bg-highlight);
+ width: 100%;
+ display: grid;
+ grid-template-columns: 350px auto;
+ box-shadow: 1px 1px 5px 0.5px;
+ background-color: var(--bg-highlight);
 }
 
 .header > span {
-  font: 35px "Abril Fatface", serif;
-  letter-spacing: 5px;
-  word-spacing: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--shadow);
+ font: 40px "Roboto", sans-serif;
+ letter-spacing: 2px;
+ word-spacing: 8px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: var(--shadow);
 }
 
 .header > .selectDiv {
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 20px;
+ display: flex;
+ align-items: center;
+ padding: 0 0 0 10px;
 }
 .selectDiv select {
-  font: 20px "Raleway", sans-serif;
+ font: 20px "Raleway", sans-serif;
 }
 .selectDiv button {
-  margin: 0 20px;
-  border-radius: 10%;
-  font: 20px "Raleway", sans-serif;
+ margin: 0 20px;
+ border-radius: 10%;
+ font: 20px "Raleway", sans-serif;
 }
 
 /* GameBoard */
 
 .cardGrid {
-  padding: 30px 20px;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(130px, 160px));
-  justify-items: center;
+ padding: 30px 20px;
+ display: grid;
+ grid-template-columns: repeat(6, minmax(130px, 160px));
+ justify-items: center;
 }
 
 .card {
-  margin: 5px;
-  height: 110px;
-  width: 120px;
-  border: solid 2px var(--highlight);
-  border-radius: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 2px 10px 1px;
+ margin: 5px;
+ height: 110px;
+ width: 120px;
+ border: solid 2px var(--highlight);
+ border-radius: 10%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ box-shadow: 1px 1px 5px 0.5px;
+ background: var(--highlight);
+}
+.flippable:hover {
+ cursor: pointer;
+ background: #fff;
+}
+.solved-card {
+ background: var(--solved);
 }
 
 .noDisplay {
-  display: none;
+ display: none;
 }
 
 .card > img {
-  max-width: 110px;
-  max-height: 110px;
+ max-width: 110px;
+ max-height: 110px;
 }
 
 .check {
-  font-size: 3em;
-  color: var(--shadow);
+ font-size: 3em;
+ color: var(--shadow);
 }
 
 .gameover {
-  margin: 30px 20px;
-  padding: 10px;
-  display: block;
-  text-align: center;
-  background-color: var(--highlight);
-  box-shadow: 12px 12px 10px 1px;
+ margin: 30px 20px;
+ padding: 10px;
+ display: block;
+ text-align: center;
+ background-color: var(--highlight);
+ box-shadow: 1px 1px 5px 0.5px;
 }
 
 .solved > h2 {
-  font: 22px "Abril Fatface", serif;
+ font: 22px "Abril Fatface", serif;
 }
 
 .solved > h3 {
-  font: 18px "Abril Fatface", serif;
+ font: 18px "Abril Fatface", serif;
 }
 
 /* Wiki Board */
 .wikiBoard {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
 }
 
 .wiki {
-  margin: 20px;
-  padding: 10px;
-  background-color: var(--bg-highlight);
-  box-shadow: 7px 7px 10px 1px;
-  color: var(--shadow);
+ margin: 20px;
+ padding: 10px;
+ background-color: var(--bg-highlight);
+ box-shadow: 1px 1px 5px 0.5px;
+ color: var(--shadow);
 }
 
 .wiki > img {
-  text-align: center;
-  width: 200px;
+ text-align: center;
+ width: 200px;
 }
