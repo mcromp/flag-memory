@@ -1,25 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Roboto&display=swap');
 :root {
- --bg-main: #cccdcede;
- --bg-highlight: #e4c7b4de;
+ --bg-main: #ffffffde;
+ --bg-highlight: #ffffffde;
  --shadow: #2a363b;
  --highlight: var(--bg-highlight);
  --solved: #ffffff11;
+}
+body{
+background: #7F7FD5;  
+background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);  
+background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
 }
 .app {
  display: grid;
  grid-template-rows: 100px auto auto;
  justify-items: center;
- background-color: var(--bg-main);
  height: 100%;
 }
 
 h1 {
- font-family: "Roboto", sans-serif;
+ font-family: "Questrial", sans-serif;
 }
 
 p {
- font-family: "Raleway", sans-serif;
+ font-family: "Roboto", sans-serif;
 }
 /* Header */
 .header {
@@ -31,8 +35,8 @@ p {
 }
 
 .header > span {
- font: 40px "Roboto", sans-serif;
- letter-spacing: 2px;
+ font: 40px "Questrial", sans-serif;
+
  word-spacing: 8px;
  display: flex;
  justify-content: center;
@@ -46,12 +50,12 @@ p {
  padding: 0 0 0 10px;
 }
 .selectDiv select {
- font: 20px "Raleway", sans-serif;
+ font: 20px sans-serif;
 }
 .selectDiv button {
  margin: 0 20px;
- border-radius: 10%;
- font: 20px "Raleway", sans-serif;
+ /* border-radius: 10%; */
+ font: 20px sans-serif;
 }
 
 /* GameBoard */
@@ -68,7 +72,7 @@ p {
  height: 110px;
  width: 120px;
  border: solid 2px var(--highlight);
- border-radius: 10%;
+ /* border-radius: 10%; */
  display: flex;
  align-items: center;
  justify-content: center;
@@ -107,11 +111,11 @@ p {
 }
 
 .solved > h2 {
- font: 22px "Abril Fatface", serif;
+ font: 22px "Questrial", serif;
 }
 
 .solved > h3 {
- font: 18px "Abril Fatface", serif;
+ font: 18px "Questrial", serif;
 }
 
 /* Wiki Board */
